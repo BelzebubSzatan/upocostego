@@ -24,7 +24,25 @@ namespace upocostego {
         }
 
         private void RenderPlayerCards() {
-            throw new NotImplementedException();
+            if (win)
+                return;
+            PlayerCards.Children.Clear();
+            playerCard = playerCard.OrderBy(z => z.Color.ToString()).ToList();
+
+            foreach (Card item in playerCard) {
+                Button button = item.Render();
+                button.Clicked += PlayerCardClick;
+                button.BindingContext= item;
+                if(playerAction) {
+                    if(item.Color==middleCard.Color||item.Value==middleCard.Value||item.Action==SpecialActions.Color) {
+                        button.BorderWidth = 2;
+                        button.BorderColor = Color.Black;
+                    }
+                }
+                PlayerCards.Children.Add(button);
+            }
+            ComputerCardsN.Text= computerCards.Count.ToString()+" Ilosc kart przeciwnika";
+
         }
 
         private void SetLastCard() {
@@ -32,7 +50,18 @@ namespace upocostego {
         }
 
         private void PlayerCardClick(object sender, EventArgs e) {
-
+            if(win) return;
+            Card c = (sender as Button).BindingContext as Card;
+            if(c.Color == middleCard.Color || c.Value == middleCard.Value || c.Action == SpecialActions.Color) {
+                SetLastCard(c);
+                if (c.Action != SpecialActions.Normal)
+                    SpecialCardAction(computerCards, c);
+                playerCard.Remove(c);
+                playerAction = false;
+                WinChech();
+                RenderPlayerCards();
+                ComputerMove();
+            }
         }
 
         private void SpecialCardAction(List<Card> target,Card card) {
