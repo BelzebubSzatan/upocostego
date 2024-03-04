@@ -63,7 +63,13 @@ namespace upocostego {
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-
+            if(playerAction&&!win)
+            {
+                playerCard.Add(deck.deck[0]);
+                deck.deck.RemoveAt(0);
+                playerAction = false;
+                ComputerMove();
+            }
         }
         private void ComputerMove() {
 
