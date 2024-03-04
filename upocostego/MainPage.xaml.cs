@@ -4,16 +4,50 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using upocostego.Models;
 using Xamarin.Forms;
 
 namespace upocostego {
     public partial class MainPage : ContentPage {
+        Deck deck = new Deck();
+        List<Card> playerCard=new List<Card>();
+        List<Card> computerCards=new List<Card>();
+        Card middleCard = null;
+        bool win=false;
+        bool playerAction = true;
         public MainPage() {
             InitializeComponent();
+            playerCard = deck.GetPlayerCards(3);
+            computerCards = deck.GetPlayerCards(3);
+            SetLastCard();
+            RenderPlayerCards();
+        }
+
+        private void RenderPlayerCards() {
+            throw new NotImplementedException();
+        }
+
+        private void SetLastCard() {
+            throw new NotImplementedException();
+        }
+
+        private void PlayerCardClick(object sender, EventArgs e) {
+
+        }
+
+        private void SpecialCardAction(List<Card> target,Card card) {
+
+        }
+
+        private void WinChech() {
+
         }
 
         private void Button_Clicked(object sender, EventArgs e)
         {
+
+        }
+        private void ComputerMove() {
 
         }
     }
