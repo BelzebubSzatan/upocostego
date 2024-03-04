@@ -31,6 +31,26 @@
                                 Clicked="Button_Clicked"/>
                     </StackLayout>
                 </Frame>
+                <Frame Margin="0"
+                       Padding="0"
+                       VerticalOptions="FillAndExpand"
+                       WidthRequest="150"
+                       HeightRequest="200"
+                       CornerRadius="10"
+                       x:Name="LastCardFrame">
+                    <StackLayout BackgroundColor="Black"
+                                 VerticalOptions="FillAndExpand"
+                                 x:Name="LastCardStack">
+                        <Label Text="Następna"
+                               TextColor="White"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               VerticalOptions="CenterAndExpand"
+                               x:Name="LastCardText"
+                               FontSize="30"/>
+                    </StackLayout>
+                    
+                </Frame>
             </FlexLayout>
         </StackLayout>
     </Grid>
