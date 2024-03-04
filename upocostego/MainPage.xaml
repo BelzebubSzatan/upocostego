@@ -53,6 +53,13 @@
                 </Frame>
             </FlexLayout>
         </StackLayout>
+        <ScrollView Orientation="Horizontal"
+                    VerticalOptions="End"
+                    Grid.Row="2">
+            <FlexLayout x:Name="PlayerCards"
+                        Direction="Row"
+                        JustifyContent="SpaceEvenly"/>
+        </ScrollView>
     </Grid>
 
 </ContentPage>
