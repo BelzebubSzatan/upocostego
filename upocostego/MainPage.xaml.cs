@@ -27,8 +27,16 @@ namespace upocostego {
             throw new NotImplementedException();
         }
 
-        private void SetLastCard() {
-            throw new NotImplementedException();
+        private void SetLastCard(Card c = null) {
+            if (middleCard == null)
+            {
+                middleCard = deck.deck[0];
+                deck.deck.RemoveAt(0);
+            }
+            else
+                middleCard = c;
+            LastCardText.Text = middleCard.Value.ToString();
+            LastCardStack.BackgroundColor = middleCard.Color;
         }
 
         private void PlayerCardClick(object sender, EventArgs e) {
