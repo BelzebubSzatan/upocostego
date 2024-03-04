@@ -9,7 +9,30 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="170"/>
         </Grid.RowDefinitions>
-        
+        <StackLayout Orientation="Vertical">
+            <Label x:Name="ComputerAction"/>
+            <Label x:Name="ComputerCardsN"/>
+        </StackLayout>
+        <StackLayout Grid.Row="1"
+                     HeightRequest="200">
+            <FlexLayout JustifyContent="SpaceEvenly">
+                <Frame Margin="0"
+                       Padding="0"
+                       VerticalOptions="FillAndExpand"
+                       WidthRequest="150"
+                       HeightRequest="200"
+                       CornerRadius="10">
+                    <StackLayout BackgroundColor="Black"
+                                 VerticalOptions="FillAndExpand">
+                        <Button Text="Następna"
+                                TextColor="White"
+                                BackgroundColor="Transparent"
+                                VerticalOptions="FillAndExpand"
+                                Clicked="Button_Clicked"/>
+                    </StackLayout>
+                </Frame>
+            </FlexLayout>
+        </StackLayout>
     </Grid>
 
 </ContentPage>
