@@ -39,7 +39,17 @@ namespace upocostego {
 
         }
 
-        private void WinChech() {
+        async void WinChech() {
+            if(playerCard.Count == 0)
+            {
+                await DisplayAlert("Wygrana", "Wygrał gracz", "OK");
+                win = true;
+            }
+            if (computerCards.Count == 0)
+            { 
+                await DisplayAlert("Wygrana", "Wygrał komputer", "OK");
+                win = true;
+            }
 
         }
 
