@@ -9,13 +9,14 @@ namespace upocostego.Models {
         public System.Drawing.Color Color { get; set; }
         public SpecialActions Action { get; set; }
         public Button Render() {
-            return new Button() { 
-                WidthRequest=80,
-                HeightRequest=150,
-                BackgroundColor=Color,
-                TextColor=Color,
-                Text=Value,
-                VerticalOptions=LayoutOptions.FillAndExpand
+            return new Button() {
+                WidthRequest = 80,
+                HeightRequest = 150,
+                BackgroundColor = Color,
+                TextColor = Color,
+                Text = Value,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                Margin = new Thickness(5),
             };
         }
     }
