@@ -66,26 +66,39 @@ namespace upocostego {
                     SpecialCardAction(computerCards, c);
                 playerCard.Remove(c);
                 playerAction = false;
-                WinChech();
                 RenderPlayerCards();
+                WinCheck();
                 ComputerMove();
             }
         }
 
         private void SpecialCardAction(List<Card> target,Card card) {
-
+            if (deck.deck.Count < 10)
+                deck.GenerateDeck();
+            if (card.Action == SpecialActions.AddTwo) {
+                for(int i = 0; i < 2; ++i) {
+                    target.Add(deck.deck[0]);
+                    deck.deck.RemoveAt(0);
+                }
+            }
+            if (card.Action == SpecialActions.AddFour) {
+                for (int i = 0; i < 4; ++i) {
+                    target.Add(deck.deck[0]);
+                    deck.deck.RemoveAt(0);
+                }
+            }
         }
 
         async void WinCheck() {
             if(playerCard.Count == 0)
             {
-                await DisplayAlert("Wygrana", "Wygrał gracz", "OK");
                 win = true;
+                await DisplayAlert("Wygrana", "Wygrał gracz", "OK");
             }
             if (computerCards.Count == 0)
             { 
-                await DisplayAlert("Wygrana", "Wygrał komputer", "OK");
                 win = true;
+                await DisplayAlert("Wygrana", "Wygrał komputer", "OK");
             }
 
         }

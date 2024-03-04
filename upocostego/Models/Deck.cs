@@ -42,7 +42,7 @@ namespace upocostego.Models {
         }
         public void Shuffle() {
             Random r=new Random();
-            deck.OrderBy(z => r.Next()).ToList();
+            deck=deck.OrderBy(z => r.Next()).ToList();
         }
         public List<Card> GetPlayerCards(int x) {
             List <Card> cards = deck.GetRange(0,x).OrderBy(z => z.Color.ToString()).ToList();
