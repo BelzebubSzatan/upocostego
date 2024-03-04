@@ -11,5 +11,10 @@ namespace upocostego {
         public MainPage() {
             InitializeComponent();
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

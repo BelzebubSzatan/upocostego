@@ -3,22 +3,63 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="upocostego.MainPage">
 
-    <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-    </StackLayout>
+    <Grid BackgroundColor="LightGreen">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="170"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="170"/>
+        </Grid.RowDefinitions>
+        <StackLayout Orientation="Vertical">
+            <Label x:Name="ComputerAction"/>
+            <Label x:Name="ComputerCardsN"/>
+        </StackLayout>
+        <StackLayout Grid.Row="1"
+                     HeightRequest="200">
+            <FlexLayout JustifyContent="SpaceEvenly">
+                <Frame Margin="0"
+                       Padding="0"
+                       VerticalOptions="FillAndExpand"
+                       WidthRequest="150"
+                       HeightRequest="200"
+                       CornerRadius="10">
+                    <StackLayout BackgroundColor="Black"
+                                 VerticalOptions="FillAndExpand">
+                        <Button Text="Następna"
+                                TextColor="White"
+                                BackgroundColor="Transparent"
+                                VerticalOptions="FillAndExpand"
+                                Clicked="Button_Clicked"/>
+                    </StackLayout>
+                </Frame>
+                <Frame Margin="0"
+                       Padding="0"
+                       VerticalOptions="FillAndExpand"
+                       WidthRequest="150"
+                       HeightRequest="200"
+                       CornerRadius="10"
+                       x:Name="LastCardFrame">
+                    <StackLayout BackgroundColor="Black"
+                                 VerticalOptions="FillAndExpand"
+                                 x:Name="LastCardStack">
+                        <Label Text="Następna"
+                               TextColor="White"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               VerticalOptions="CenterAndExpand"
+                               x:Name="LastCardText"
+                               FontSize="30"/>
+                    </StackLayout>
+                    
+                </Frame>
+            </FlexLayout>
+        </StackLayout>
+        <ScrollView Orientation="Horizontal"
+                    VerticalOptions="End"
+                    Grid.Row="2">
+            <FlexLayout x:Name="PlayerCards"
+                        Direction="Row"
+                        JustifyContent="SpaceEvenly"/>
+        </ScrollView>
+    </Grid>
 
 </ContentPage>
